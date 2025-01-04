@@ -1,6 +1,8 @@
 using CalculatorMath;
 using System.DirectoryServices;
 using CalculatorUI;
+using System.Windows.Forms;
+using System.Reflection.Emit;
 
 namespace Calculator
 {
@@ -19,7 +21,32 @@ namespace Calculator
             InitializeComponent();
             this.BackColor = Color.FromArgb(30, 30, 30);
             this.Size = new Size(600, 870);
+            
+            CalcRoundedLabel label3 = new CalcRoundedLabel();
+            label3.Width = 500;
+            label3.Height = 8; // Высота линии
+            label3.BackColor = Color.LightGray; // Светло-серый цвет
+            label3.Location = new Point(50, 215);
+            this.Controls.Add(label3);
 
+
+
+            label1.BackColor = Color.FromArgb(30, 30, 30);
+            label1.Font = new Font("Arial", 16, FontStyle.Bold);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(180, 40);
+            label1.Size = new Size(540, 60);
+            label1.AutoSize = true;
+
+            flowLayoutPanel1.FlowDirection = FlowDirection.RightToLeft;
+            flowLayoutPanel1.VerticalScroll.Enabled = false;
+            flowLayoutPanel1.VerticalScroll.Visible = false;
+            flowLayoutPanel1.WrapContents = false;
+            flowLayoutPanel1.Location = new Point(55, 30);
+            flowLayoutPanel1.Size = new Size(480, 65);
+            flowLayoutPanel1.Controls.Add(label1);
+
+            
             button1.Location = new Point(50, 370);
             button1.BackColor = Color.FromArgb(50, 50, 50);
             button1.Size = new Size(90, 90);
@@ -220,6 +247,16 @@ namespace Calculator
             button21.MouseEnter += (s, e) => button21.BackColor = Color.Gray;
             button21.MouseLeave += (s, e) => button21.BackColor = Color.FromArgb(50, 50, 50);
 
+            button17.Location = new Point(450, 145);
+            button17.SetRadius(10);
+            button17.BackColor = Color.FromArgb(50, 50, 50);
+            button17.Size = new Size(80, 45);
+            button17.ForeColor = Color.White;
+            button17.Font = new Font("Arial", 15, FontStyle.Bold);
+            button17.FlatStyle = FlatStyle.Flat;
+            button17.FlatAppearance.BorderSize = 0;
+            button17.MouseEnter += (s, e) => button17.BackColor = Color.Gray;
+            button17.MouseLeave += (s, e) => button17.BackColor = Color.FromArgb(50, 50, 50);
 
         }
 

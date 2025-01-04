@@ -30,7 +30,6 @@ namespace Calculator
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
             button1 = new CalcButton();
             button2 = new CalcButton();
             button3 = new CalcButton();
@@ -53,16 +52,8 @@ namespace Calculator
             label2 = new Label();
             button19 = new CalcButton();
             button21 = new CalcButton();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(231, 24);
-            label1.Name = "label1";
-            label1.Size = new Size(0, 25);
-            label1.TabIndex = 0;
-            label1.Click += label1_Click;
             // 
             // button1
             // 
@@ -230,7 +221,7 @@ namespace Calculator
             button17.Name = "button17";
             button17.Size = new Size(112, 34);
             button17.TabIndex = 20;
-            button17.Text = "delete";
+            button17.Text = "del";
             button17.UseVisualStyleBackColor = true;
             button17.Click += button17_Click;
             // 
@@ -282,11 +273,21 @@ namespace Calculator
             button21.UseVisualStyleBackColor = true;
             button21.Click += button21_Click;
             // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel1.Location = new Point(39, 6);
+            flowLayoutPanel1.Margin = new Padding(3, 3, 10, 3);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(387, 101);
+            flowLayoutPanel1.TabIndex = 24;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(581, 517);
+            Controls.Add(flowLayoutPanel1);
             Controls.Add(button21);
             Controls.Add(button19);
             Controls.Add(label2);
@@ -309,7 +310,6 @@ namespace Calculator
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(label1);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
@@ -318,7 +318,8 @@ namespace Calculator
 
         #endregion
 
-        private Label label1;
+
+        private Label label1 = new Label();
         private CalcButton button1;
         private CalcButton button2;
         private CalcButton button3;
@@ -339,7 +340,8 @@ namespace Calculator
         private CalcButton button18;
         private CalcButton button20;
         private Label label2;
-        private Button button19;
-        private Button button21;
+        private CalcButton button19;
+        private CalcButton button21;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }
