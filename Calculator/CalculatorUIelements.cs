@@ -1,14 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Drawing;
-using System.Windows.Forms;
-using System.Threading.Tasks;
+
 
 namespace CalculatorUI
 {
+    public class RightTopRoundedButton : Button
+    {
+        // Радиус закругления
+        private int radius = 25;
+
+
+        protected override void OnPaint(PaintEventArgs pevent)
+        {
+            Graphics g = pevent.Graphics;
+            g.SmoothingMode = SmoothingMode.AntiAlias;
+
+            // Создаем закругленный прямоугольник
+            using (GraphicsPath path = new GraphicsPath())
+            {
+                path.AddArc(0, 0, 1, 1, 180, 90); // Верхний левый угол
+                path.AddArc(this.Width - radius, 0, radius, radius, 270, 90); // Верхний правый угол
+                path.AddArc(this.Width - 1, this.Height - 1, 1, 1, 0, 90); // Нижний правый угол
+                path.AddArc(0, this.Height - 1, 1, 1, 90, 90); // Нижний левый угол
+                path.CloseFigure();
+                this.Region = new Region(path);
+            }
+
+            // Рисуем кнопку
+            base.OnPaint(pevent);
+        }
+    }
     
     internal class CalcButton : Button
     {

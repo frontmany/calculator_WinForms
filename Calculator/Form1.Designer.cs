@@ -231,7 +231,7 @@ namespace Calculator
             button18.Name = "button18";
             button18.Size = new Size(112, 34);
             button18.TabIndex = 19;
-            button18.Text = "sqrt";
+            button18.Text = "\u221A";
             button18.UseVisualStyleBackColor = true;
             button18.Click += button18_Click;
             // 
@@ -250,7 +250,6 @@ namespace Calculator
             label2.AutoSize = true;
             label2.Location = new Point(262, 65);
             label2.Name = "label2";
-            label2.Size = new Size(0, 25);
             label2.TabIndex = 21;
             // 
             // button19
@@ -269,7 +268,7 @@ namespace Calculator
             button21.Name = "button21";
             button21.Size = new Size(112, 34);
             button21.TabIndex = 23;
-            button21.Text = "/";
+            button21.Text = "\u00F7";
             button21.UseVisualStyleBackColor = true;
             button21.Click += button21_Click;
             // 
@@ -343,5 +342,11 @@ namespace Calculator
         private CalcButton button19;
         private CalcButton button21;
         private FlowLayoutPanel flowLayoutPanel1;
+        FlowLayoutPanel flowLayoutPanel2 = new FlowLayoutPanel();
+
+        private Label titleLabel;
+        private PictureBox calculatorIcon;
+        RightTopRoundedButton closeButton;
+        CalcButton minimizeButton;
     }
 }

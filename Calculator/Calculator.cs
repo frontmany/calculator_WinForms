@@ -220,7 +220,7 @@ namespace CalculatorMath
 
             for (int i = 0; i < m_operators.Count; i++)
             {
-                if (m_operators[i] == "/")
+                if (m_operators[i] == "\u00F7")
                 {
                     indicies.Add(i);
                 }
