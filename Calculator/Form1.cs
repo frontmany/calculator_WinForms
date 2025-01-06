@@ -54,7 +54,7 @@ namespace Calculator
         }
         private void SetRoundedRegion()
         {
-            int radius = 25; // Радиус закругления
+            int radius = 20; // Радиус закругления
             GraphicsPath path = new GraphicsPath();
             path.StartFigure();
             path.AddArc(0, 0, radius, radius, 180, 90); // Верхний левый угол
@@ -94,8 +94,8 @@ namespace Calculator
         {
             InitializeComponent();
             this.BackColor = Color.FromArgb(30, 30, 30);
-            this.Size = new Size(570, 900);
-            this.Icon = new Icon("C:/prj/С#/Calculator/resources/calculator.ico");
+            this.Size = new Size(345, 610);
+            this.Icon = new Icon("C:/prj/C#/Calculator/resources/calculator.ico");
             this.Text = "Калькулятор";
             this.FormBorderStyle = FormBorderStyle.None;
 
@@ -106,40 +106,46 @@ namespace Calculator
             this.MouseUp += CustomTitleBar_MouseUp;
 
             calculatorIcon = new PictureBox();
-            calculatorIcon.Image = Image.FromFile("C:/prj/С#/Calculator/resources/calculator.ico"); // Путь к иконке калькулятора
+            calculatorIcon.Image = Image.FromFile("C:/prj/C#/Calculator/resources/calculator.ico");
             calculatorIcon.SizeMode = PictureBoxSizeMode.StretchImage;
-            calculatorIcon.Size = new Size(30, 30); // Размер иконки
-            calculatorIcon.Location = new Point(10, 10); // Положение иконки
-
+            calculatorIcon.Size = new Size(15, 15); // Уменьшено в два раза
+            calculatorIcon.Location = new Point(8, 5); // Сдвинуто влево
 
             titleLabel = new Label();
             titleLabel.Text = "Калькулятор";
             titleLabel.ForeColor = Color.White;
-            titleLabel.Location = new Point(50, 10); // Сдвинуть вправо, чтобы место для иконки
+            titleLabel.Location = new Point(25, 5); // Сдвинуто влево
             titleLabel.AutoSize = true;
 
             closeButton = new RightTopRoundedButton();
-            closeButton.Location = new Point(this.Width - 60, 0); // Сдвинут на 40 пикселей вниз
+            closeButton.Location = new Point(this.Width - 40, 0); // Сдвинуто влево
             closeButton.BackColor = Color.FromArgb(30, 30, 30);
-            closeButton.Size = new Size(60, 45);
+            closeButton.Size = new Size(40, 26); // Уменьшено в два раза
             closeButton.ForeColor = Color.White;
-            closeButton.Font = new Font("Arial", 16, FontStyle.Bold);
-            closeButton.Image = Image.FromFile("C:/prj/С#/Calculator/resources/cross.png");
+            closeButton.Font = new Font("Arial", 8, FontStyle.Bold); // Уменьшен размер шрифта
+            
+            Image oImage2 = Image.FromFile("C:/prj/C#/Calculator/resources/cross.png");
+            Image resizedImage2 = oImage2.GetThumbnailImage(28, 28, null, IntPtr.Zero);
+            closeButton.Image = resizedImage2;
+
             closeButton.FlatStyle = FlatStyle.Flat;
             closeButton.FlatAppearance.BorderSize = 0;
             closeButton.MouseEnter += (s, e) => closeButton.BackColor = Color.FromArgb(40, 40, 40);
             closeButton.MouseLeave += (s, e) => closeButton.BackColor = Color.FromArgb(30, 30, 30);
             closeButton.Click += CloseButton_Click;
 
-
             minimizeButton = new CalcButton();
             minimizeButton.SetRadius(1);
-            minimizeButton.Location = new Point(this.Width - 120, 0); // Сдвинут на 40 пикселей вниз
+            minimizeButton.Location = new Point(this.Width - 80, 0); // Сдвинуто влево
             minimizeButton.BackColor = Color.FromArgb(30, 30, 30);
-            minimizeButton.Size = new Size(60, 45);
+            minimizeButton.Size = new Size(40, 26); // Уменьшено в два раза
             minimizeButton.ForeColor = Color.White;
-            minimizeButton.Font = new Font("Arial", 16, FontStyle.Bold);
-            minimizeButton.Image = Image.FromFile("C:/prj/С#/Calculator/resources/fold.png");
+            minimizeButton.Font = new Font("Arial", 8, FontStyle.Bold); // Уменьшен размер шрифта
+
+            Image oImage1 = Image.FromFile("C:/prj/C#/Calculator/resources/fold.png");
+            Image resizedImage1 = oImage1.GetThumbnailImage(28, 28, null, IntPtr.Zero);
+            minimizeButton.Image = resizedImage1;
+
             minimizeButton.FlatStyle = FlatStyle.Flat;
             minimizeButton.FlatAppearance.BorderSize = 0;
             minimizeButton.MouseEnter += (s, e) => minimizeButton.BackColor = Color.FromArgb(40, 40, 40);
@@ -151,249 +157,249 @@ namespace Calculator
             this.Controls.Add(closeButton);
             this.Controls.Add(minimizeButton);
 
-
             CalcRoundedLabel label3 = new CalcRoundedLabel();
-            label3.Width = 490;
-            label3.Height = 8; // Высота линии
-            label3.BackColor = Color.LightGray; // Светло-серый цвет
-            label3.Location = new Point(30, 255); // Сдвинут на 40 пикселей вниз
+            label3.Width = 310; // Уменьшено в два раза
+            label3.Height = 6; // Уменьшено в два раза
+            label3.BackColor = Color.LightGray;
+            label3.Location = new Point(10, 150); // Сдвинуто влево
             this.Controls.Add(label3);
 
             label1.BackColor = Color.FromArgb(30, 30, 30);
-            label1.Font = new Font("Arial", 16, FontStyle.Bold);
+            label1.Font = new Font("Arial", 8, FontStyle.Bold); // Уменьшен размер шрифта
             label1.ForeColor = Color.White;
-            label1.Location = new Point(160, 80); // Сдвинуто на 20 пикселей влево
-            label1.Size = new Size(540, 60);
+            label1.Location = new Point(80, 80); // Сдвинуто влево
+            label1.Size = new Size(270, 30); // Уменьшено в два раза
             label1.AutoSize = true;
 
             flowLayoutPanel1.FlowDirection = FlowDirection.RightToLeft;
-            flowLayoutPanel1.Location = new Point(35, 70); // Сдвинуто на 20 пикселей влево
-            flowLayoutPanel1.Size = new Size(480, 65);
+            flowLayoutPanel1.Location = new Point(36, 40); // Сдвинуто влево
+            flowLayoutPanel1.Size = new Size(280, 32); // Уменьшено в два раза
             flowLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             flowLayoutPanel1.Controls.Add(label1);
 
             label2.BackColor = Color.FromArgb(30, 30, 30);
-            label2.Font = new Font("Arial", 16, FontStyle.Bold);
+            label2.Font = new Font("Arial", 16, FontStyle.Bold); // Уменьшен размер шрифта
             label2.ForeColor = Color.FromArgb(99, 99, 99);
-            label2.Location = new Point(20, 130); // Сдвинуто на 20 пикселей влево
-            label2.Size = new Size(540, 60);
+            label2.Location = new Point(10, 130); // Сдвинуто влево
+            label2.Size = new Size(270, 30); // Уменьшено в два раза
             label2.AutoSize = true;
             label2.TextAlign = ContentAlignment.MiddleRight;
 
             flowLayoutPanel2.FlowDirection = FlowDirection.RightToLeft;
             flowLayoutPanel2.VerticalScroll.Enabled = false;
             flowLayoutPanel2.VerticalScroll.Visible = false;
-            flowLayoutPanel2.Location = new Point(35, 130); // Сдвинуто на 20 пикселей влево
-            flowLayoutPanel2.Size = new Size(480, 65);
+            flowLayoutPanel2.Location = new Point(35, 75); // Сдвинуто влево
+            flowLayoutPanel2.Size = new Size(280, 32); // Уменьшено в два раза
             flowLayoutPanel2.Controls.Add(label2);
             this.Controls.Add(flowLayoutPanel2);
 
-            button1.Location = new Point(30, 410); // Сдвинуто на 20 пикселей влево
+            // Изменение кнопок
+            button1.Location = new Point(10, 210); // Сдвинуто влево
             button1.BackColor = Color.FromArgb(50, 50, 50);
-            button1.Size = new Size(90, 90);
+            button1.Size = new Size(70, 70); // Уменьшено в два раза
             button1.ForeColor = Color.White;
-            button1.Font = new Font("Arial", 16, FontStyle.Bold);
+            button1.Font = new Font("Arial", 16, FontStyle.Bold); // Уменьшен размер шрифта
             button1.FlatStyle = FlatStyle.Flat;
             button1.FlatAppearance.BorderSize = 0;
             button1.MouseEnter += (s, e) => button1.BackColor = Color.Gray;
             button1.MouseLeave += (s, e) => button1.BackColor = Color.FromArgb(50, 50, 50);
 
-            button2.Location = new Point(165, 410); // Сдвинуто на 20 пикселей влево
+            button2.Location = new Point(90, 210); // Сдвинуто влево
             button2.BackColor = Color.FromArgb(50, 50, 50);
-            button2.Size = new Size(90, 90);
+            button2.Size = new Size(70, 70); // Уменьшено в два раза
             button2.ForeColor = Color.White;
-            button2.Font = new Font("Arial", 16, FontStyle.Bold);
+            button2.Font = new Font("Arial", 16, FontStyle.Bold); // Уменьшен размер шрифта
             button2.FlatStyle = FlatStyle.Flat;
             button2.FlatAppearance.BorderSize = 0;
             button2.MouseEnter += (s, e) => button2.BackColor = Color.Gray;
             button2.MouseLeave += (s, e) => button2.BackColor = Color.FromArgb(50, 50, 50);
 
-            button3.Location = new Point(295, 410); // Сдвинуто на 20 пикселей влево
+            button3.Location = new Point(170, 210); // Сдвинуто влево
             button3.BackColor = Color.FromArgb(50, 50, 50);
-            button3.Size = new Size(90, 90);
+            button3.Size = new Size(70, 70); // Уменьшено в два раза
             button3.ForeColor = Color.White;
-            button3.Font = new Font("Arial", 16, FontStyle.Bold);
+            button3.Font = new Font("Arial", 16, FontStyle.Bold); // Уменьшен размер шрифта
             button3.FlatStyle = FlatStyle.Flat;
             button3.FlatAppearance.BorderSize = 0;
             button3.MouseEnter += (s, e) => button3.BackColor = Color.Gray;
             button3.MouseLeave += (s, e) => button3.BackColor = Color.FromArgb(50, 50, 50);
 
-            button4.Location = new Point(165, 515); // Сдвинуто на 20 пикселей влево
+            button4.Location = new Point(90, 290); // Сдвинуто влево
             button4.BackColor = Color.FromArgb(50, 50, 50);
-            button4.Size = new Size(90, 90);
+            button4.Size = new Size(70, 70); // Уменьшено в два раза
             button4.ForeColor = Color.White;
-            button4.Font = new Font("Arial", 16, FontStyle.Bold);
+            button4.Font = new Font("Arial", 16, FontStyle.Bold); // Уменьшен размер шрифта
             button4.FlatStyle = FlatStyle.Flat;
             button4.FlatAppearance.BorderSize = 0;
             button4.MouseEnter += (s, e) => button4.BackColor = Color.Gray;
             button4.MouseLeave += (s, e) => button4.BackColor = Color.FromArgb(50, 50, 50);
 
-            button5.Location = new Point(295, 515); // Сдвинуто на 20 пикселей влево
+            button5.Location = new Point(170, 290); // Сдвинуто влево
             button5.BackColor = Color.FromArgb(50, 50, 50);
-            button5.Size = new Size(90, 90);
+            button5.Size = new Size(70, 70); // Уменьшено в два раза
             button5.ForeColor = Color.White;
-            button5.Font = new Font("Arial", 16, FontStyle.Bold);
+            button5.Font = new Font("Arial", 16, FontStyle.Bold); // Уменьшен размер шрифта
             button5.FlatStyle = FlatStyle.Flat;
             button5.FlatAppearance.BorderSize = 0;
             button5.MouseEnter += (s, e) => button5.BackColor = Color.Gray;
             button5.MouseLeave += (s, e) => button5.BackColor = Color.FromArgb(50, 50, 50);
 
-            button6.Location = new Point(30, 515); // Сдвинуто на 20 пикселей влево
+            button6.Location = new Point(10, 290); // Сдвинуто влево
             button6.BackColor = Color.FromArgb(50, 50, 50);
-            button6.Size = new Size(90, 90);
+            button6.Size = new Size(70, 70); // Уменьшено в два раза
             button6.ForeColor = Color.White;
-            button6.Font = new Font("Arial", 16, FontStyle.Bold);
+            button6.Font = new Font("Arial", 16, FontStyle.Bold); // Уменьшен размер шрифта
             button6.FlatStyle = FlatStyle.Flat;
             button6.FlatAppearance.BorderSize = 0;
             button6.MouseEnter += (s, e) => button6.BackColor = Color.Gray;
             button6.MouseLeave += (s, e) => button6.BackColor = Color.FromArgb(50, 50, 50);
 
-            button7.Location = new Point(165, 620); // Сдвинуто на 20 пикселей влево
+            button7.Location = new Point(90, 370); // Сдвинуто влево
             button7.BackColor = Color.FromArgb(50, 50, 50);
-            button7.Size = new Size(90, 90);
+            button7.Size = new Size(70, 70); // Уменьшено в два раза
             button7.ForeColor = Color.White;
-            button7.Font = new Font("Arial", 16, FontStyle.Bold);
+            button7.Font = new Font("Arial", 16, FontStyle.Bold); // Уменьшен размер шрифта
             button7.FlatStyle = FlatStyle.Flat;
             button7.FlatAppearance.BorderSize = 0;
             button7.MouseEnter += (s, e) => button7.BackColor = Color.Gray;
-            button7.MouseLeave += (s, e) => button7.MouseLeave += (s, e) => button7.BackColor = Color.FromArgb(50, 50, 50);
+            button7.MouseLeave += (s, e) => button7.BackColor = Color.FromArgb(50, 50, 50);
 
-            button8.Location = new Point(295, 620); // Сдвинуто на 20 пикселей влево
+            button8.Location = new Point(170, 370); // Сдвинуто влево
             button8.BackColor = Color.FromArgb(50, 50, 50);
-            button8.Size = new Size(90, 90);
+            button8.Size = new Size(70, 70); // Уменьшено в два раза
             button8.ForeColor = Color.White;
-            button8.Font = new Font("Arial", 16, FontStyle.Bold);
+            button8.Font = new Font("Arial", 16, FontStyle.Bold); // Уменьшен размер шрифта
             button8.FlatStyle = FlatStyle.Flat;
             button8.FlatAppearance.BorderSize = 0;
             button8.MouseEnter += (s, e) => button8.BackColor = Color.Gray;
             button8.MouseLeave += (s, e) => button8.BackColor = Color.FromArgb(50, 50, 50);
 
-            button9.Location = new Point(30, 620); // Сдвинуто на 20 пикселей влево
+            button9.Location = new Point(10, 370); // Сдвинуто влево
             button9.BackColor = Color.FromArgb(50, 50, 50);
-            button9.Size = new Size(90, 90);
+            button9.Size = new Size(70, 70); // Уменьшено в два раза
             button9.ForeColor = Color.White;
-            button9.Font = new Font("Arial", 16, FontStyle.Bold);
+            button9.Font = new Font("Arial", 16, FontStyle.Bold); // Уменьшен размер шрифта
             button9.FlatStyle = FlatStyle.Flat;
             button9.FlatAppearance.BorderSize = 0;
             button9.MouseEnter += (s, e) => button9.BackColor = Color.Gray;
             button9.MouseLeave += (s, e) => button9.BackColor = Color.FromArgb(50, 50, 50);
 
-            button10.Location = new Point(295, 725); // Сдвинуто на 20 пикселей влево
+            button10.Location = new Point(170, 450); // Сдвинуто влево
             button10.BackColor = Color.FromArgb(50, 50, 50);
-            button10.Size = new Size(90, 90);
+            button10.Size = new Size(70, 70); // Уменьшено в два раза
             button10.ForeColor = Color.White;
-            button10.Font = new Font("Arial", 16, FontStyle.Bold);
+            button10.Font = new Font("Arial", 16, FontStyle.Bold); // Уменьшен размер шрифта
             button10.FlatStyle = FlatStyle.Flat;
             button10.FlatAppearance.BorderSize = 0;
             button10.MouseEnter += (s, e) => button10.BackColor = Color.Gray;
             button10.MouseLeave += (s, e) => button10.BackColor = Color.FromArgb(50, 50, 50);
 
-            button11.Location = new Point(165, 725); // Сдвинуто на 20 пикселей влево
+            button11.Location = new Point(90, 450); // Сдвинуто влево
             button11.BackColor = Color.FromArgb(50, 50, 50);
-            button11.Size = new Size(90, 90);
+            button11.Size = new Size(70, 70); // Уменьшено в два раза
             button11.ForeColor = Color.White;
-            button11.Font = new Font("Arial", 16, FontStyle.Bold);
+            button11.Font = new Font("Arial", 16, FontStyle.Bold); // Уменьшен размер шрифта
             button11.FlatStyle = FlatStyle.Flat;
             button11.FlatAppearance.BorderSize = 0;
             button11.MouseEnter += (s, e) => button11.BackColor = Color.Gray;
             button11.MouseLeave += (s, e) => button11.BackColor = Color.FromArgb(50, 50, 50);
 
-            button12.Location = new Point(30, 725); // Сдвинуто на 20 пикселей влево
+            button12.Location = new Point(10, 450); // Сдвинуто влево
             button12.BackColor = Color.FromArgb(50, 50, 50);
-            button12.Size = new Size(90, 90);
+            button12.Size = new Size(70, 70); // Уменьшено в два раза
             button12.ForeColor = Color.White;
-            button12.Font = new Font("Arial", 16, FontStyle.Bold);
+            button12.Font = new Font("Arial", 16, FontStyle.Bold); // Уменьшен размер шрифта
             button12.FlatStyle = FlatStyle.Flat;
             button12.FlatAppearance.BorderSize = 0;
             button12.MouseEnter += (s, e) => button12.BackColor = Color.Gray;
             button12.MouseLeave += (s, e) => button12.BackColor = Color.FromArgb(50, 50, 50);
 
-            button13.Location = new Point(425, 725); // Сдвинуто на 20 пикселей влево
+            button13.Location = new Point(250, 450); // Сдвинуто влево
             button13.BackColor = Color.FromArgb(50, 135, 59);
-            button13.Size = new Size(90, 90);
+            button13.Size = new Size(70, 70); // Уменьшено в два раза
             button13.ForeColor = Color.White;
-            button13.Font = new Font("Arial", 16, FontStyle.Bold);
+            button13.Font = new Font("Arial", 16, FontStyle.Bold); // Уменьшен размер шрифта
             button13.FlatStyle = FlatStyle.Flat;
             button13.FlatAppearance.BorderSize = 0;
             button13.MouseEnter += (s, e) => button13.BackColor = Color.FromArgb(84, 252, 58);
             button13.MouseLeave += (s, e) => button13.BackColor = Color.FromArgb(50, 135, 59);
 
-            button14.Location = new Point(425, 620); // Сдвинуто на 20 пикселей влево
+            button14.Location = new Point(250, 370); // Сдвинуто влево
             button14.BackColor = Color.FromArgb(50, 50, 50);
-            button14.Size = new Size(90, 90);
+            button14.Size = new Size(70, 70); // Уменьшено в два раза
             button14.ForeColor = Color.FromArgb(84, 252, 58);
-            button14.Font = new Font("Arial", 16, FontStyle.Bold);
+            button14.Font = new Font("Arial", 16, FontStyle.Bold); // Уменьшен размер шрифта
             button14.FlatStyle = FlatStyle.Flat;
             button14.FlatAppearance.BorderSize = 0;
             button14.MouseEnter += (s, e) => button14.BackColor = Color.Gray;
             button14.MouseLeave += (s, e) => button14.BackColor = Color.FromArgb(50, 50, 50);
 
-            button15.Location = new Point(425, 515); // Сдвинуто на 20 пикселей влево
+            button15.Location = new Point(250, 290); // Сдвинуто влево
             button15.BackColor = Color.FromArgb(50, 50, 50);
-            button15.Size = new Size(90, 90);
+            button15.Size = new Size(70, 70); // Уменьшено в два раза
             button15.ForeColor = Color.FromArgb(84, 252, 58);
-            button15.Font = new Font("Arial", 16, FontStyle.Bold);
+            button15.Font = new Font("Arial", 16, FontStyle.Bold); // Уменьшен размер шрифта
             button15.FlatStyle = FlatStyle.Flat;
             button15.FlatAppearance.BorderSize = 0;
             button15.MouseEnter += (s, e) => button15.BackColor = Color.Gray;
             button15.MouseLeave += (s, e) => button15.BackColor = Color.FromArgb(50, 50, 50);
 
-            button16.Location = new Point(425, 410); // Сдвинуто на 20 пикселей влево
+            button16.Location = new Point(250, 210); // Сдвинуто влево
             button16.BackColor = Color.FromArgb(50, 50, 50);
-            button16.Size = new Size(90, 90);
+            button16.Size = new Size(70, 70); // Уменьшено в два раза
             button16.ForeColor = Color.FromArgb(84, 252, 58);
-            button16.Font = new Font("Arial", 16, FontStyle.Bold);
+            button16.Font = new Font("Arial", 16, FontStyle.Bold); // Уменьшен размер шрифта
             button16.FlatStyle = FlatStyle.Flat;
             button16.FlatAppearance.BorderSize = 0;
             button16.MouseEnter += (s, e) => button16.BackColor = Color.Gray;
             button16.MouseLeave += (s, e) => button16.BackColor = Color.FromArgb(50, 50, 50);
 
-            button18.Location = new Point(165, 305); // Сдвинуто на 20 пикселей влево
+            button18.Location = new Point(90, 130); // Сдвинуто влево
             button18.BackColor = Color.FromArgb(50, 50, 50);
-            button18.Size = new Size(90, 90);
+            button18.Size = new Size(70, 70); // Уменьшено в два раза
             button18.ForeColor = Color.FromArgb(84, 252, 58);
-            button18.Font = new Font("Arial", 16, FontStyle.Bold);
+            button18.Font = new Font("Arial", 16, FontStyle.Bold); // Уменьшен размер шрифта
             button18.FlatStyle = FlatStyle.Flat;
             button18.FlatAppearance.BorderSize = 0;
             button18.MouseEnter += (s, e) => button18.BackColor = Color.Gray;
             button18.MouseLeave += (s, e) => button18.BackColor = Color.FromArgb(50, 50, 50);
 
-            button19.Location = new Point(30, 305); // Сдвинуто на 20 пикселей влево
+            button19.Location = new Point(10, 130); // Сдвинуто влево
             button19.BackColor = Color.FromArgb(50, 50, 50);
-            button19.Size = new Size(90, 90);
+            button19.Size = new Size(70, 70); // Уменьшено в два раза
             button19.ForeColor = Color.FromArgb(252, 58, 71);
-            button19.Font = new Font("Arial", 16, FontStyle.Bold);
+            button19.Font = new Font("Arial", 16, FontStyle.Bold); // Уменьшен размер шрифта
             button19.FlatStyle = FlatStyle.Flat;
             button19.FlatAppearance.BorderSize = 0;
             button19.MouseEnter += (s, e) => button19.BackColor = Color.Gray;
             button19.MouseLeave += (s, e) => button19.BackColor = Color.FromArgb(50, 50, 50);
 
-            button20.Location = new Point(295, 305); // Сдвинуто на 20 пикселей влево
+            button20.Location = new Point(170, 130); // Сдвинуто влево
             button20.BackColor = Color.FromArgb(50, 50, 50);
-            button20.Size = new Size(90, 90);
+            button20.Size = new Size(70, 70); // Уменьшено в два раза
             button20.ForeColor = Color.FromArgb(84, 252, 58);
-            button20.Font = new Font("Arial", 16, FontStyle.Bold);
+            button20.Font = new Font("Arial", 16, FontStyle.Bold); // Уменьшен размер шрифта
             button20.FlatStyle = FlatStyle.Flat;
             button20.FlatAppearance.BorderSize = 0;
             button20.MouseEnter += (s, e) => button20.BackColor = Color.Gray;
             button20.MouseLeave += (s, e) => button20.BackColor = Color.FromArgb(50, 50, 50);
 
-            button21.Location = new Point(425, 305); // Сдвинуто на 20 пикселей влево
+            button21.Location = new Point(250, 130); // Сдвинуто влево
             button21.BackColor = Color.FromArgb(50, 50, 50);
-            button21.Size = new Size(90, 90);
+            button21.Size = new Size(70, 70); // Уменьшено в два раза
             button21.ForeColor = Color.FromArgb(84, 252, 58);
-            button21.Font = new Font("Arial", 16, FontStyle.Bold);
+            button21.Font = new Font("Arial", 16, FontStyle.Bold); // Уменьшен размер шрифта
             button21.FlatStyle = FlatStyle.Flat;
             button21.FlatAppearance.BorderSize = 0;
             button21.MouseEnter += (s, e) => button21.BackColor = Color.Gray;
             button21.MouseLeave += (s, e) => button21.BackColor = Color.FromArgb(50, 50, 50);
 
-            button17.Location = new Point(440, 185); // Сдвинуто на 20 пикселей влево
+            button17.Location = new Point(200, 50); // Сдвинуто влево
             button17.SetRadius(10);
             button17.BackColor = Color.FromArgb(30, 30, 30);
-            button17.Size = new Size(80, 45);
+            button17.Size = new Size(60, 30); // Уменьшено в два раза
             button17.ForeColor = Color.FromArgb(50, 135, 59);
-            button17.Font = new Font("Arial", 14, FontStyle.Bold);
+            button17.Font = new Font("Arial", 14, FontStyle.Bold); // Уменьшен размер шрифта
             button17.FlatStyle = FlatStyle.Flat;
             button17.FlatAppearance.BorderSize = 0;
             button17.MouseEnter += (s, e) => button17.BackColor = Color.Gray;
@@ -401,6 +407,27 @@ namespace Calculator
             button17.MouseLeave += (s, e) => button17.BackColor = Color.FromArgb(30, 30, 30);
             button17.MouseLeave += (s, e) => button17.ForeColor = Color.FromArgb(50, 135, 59);
 
+            button1.Location = new Point(10, 250); // Сдвинуто вниз на 40
+            button2.Location = new Point(90, 250); // Сдвинуто вниз на 40
+            button3.Location = new Point(170, 250); // Сдвинуто вниз на 40
+            button4.Location = new Point(90, 330); // Сдвинуто вниз на 40
+            button5.Location = new Point(170, 330); // Сдвинуто вниз на 40
+            button6.Location = new Point(10, 330); // Сдвинуто вниз на 40
+            button7.Location = new Point(90, 410); // Сдвинуто вниз на 40
+            button8.Location = new Point(170, 410); // Сдвинуто вниз на 40
+            button9.Location = new Point(10, 410); // Сдвинуто вниз на 40
+            button10.Location = new Point(170, 490); // Сдвинуто вниз на 40
+            button11.Location = new Point(90, 490); // Сдвинуто вниз на 40
+            button12.Location = new Point(10, 490); // Сдвинуто вниз на 40
+            button13.Location = new Point(250, 490); // Сдвинуто вниз на 40
+            button14.Location = new Point(250, 410); // Сдвинуто вниз на 40
+            button15.Location = new Point(250, 330); // Сдвинуто вниз на 40
+            button16.Location = new Point(250, 250); // Сдвинуто вниз на 40
+            button18.Location = new Point(90, 170); // Сдвинуто вниз на 40
+            button19.Location = new Point(10, 170); // Сдвинуто вниз на 40
+            button20.Location = new Point(170, 170); // Сдвинуто вниз на 40
+            button21.Location = new Point(250, 170); // Сдвинуто вниз на 40
+            button17.Location = new Point(260, 110); // Сдвинуто вниз на 40
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -1525,7 +1552,7 @@ namespace Calculator
             }
             if (m_equation.Length - 1 == -1) { return; }
             if ((m_equation[m_equation.Length - 1] != '.' && m_equation[m_equation.Length - 1] != 'E' && m_equation[m_equation.Length - 1] != ')') && m_numbers_list[m_current_number_index].Length <= MAX_LENGTH_NUMBER - 1
-                && m_numbers_list[m_current_number_index] != "" && !m_equation.Contains('.'))
+                && m_numbers_list[m_current_number_index] != "" && !m_numbers_list[m_current_number_index].Contains(',') && !m_numbers_list[m_current_number_index].Contains('E'))
             {
                 m_numbers_list[m_current_number_index] += ",";
 

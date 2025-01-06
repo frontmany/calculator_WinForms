@@ -78,7 +78,7 @@ namespace CalculatorUI
             base.OnPaint(e);
             using (GraphicsPath path = new GraphicsPath())
             {
-                int radius = 7; // Радиус закругления
+                int radius = 5; // Радиус закругления
                 path.AddArc(0, 0, radius, radius, 180, 90);
                 path.AddArc(this.Width - radius, 0, radius, radius, 270, 90);
                 path.AddArc(this.Width - radius, this.Height - radius, radius, radius, 0, 90);
