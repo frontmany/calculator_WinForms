@@ -1525,7 +1525,7 @@ namespace Calculator
             }
             if (m_equation.Length - 1 == -1) { return; }
             if ((m_equation[m_equation.Length - 1] != '.' && m_equation[m_equation.Length - 1] != 'E' && m_equation[m_equation.Length - 1] != ')') && m_numbers_list[m_current_number_index].Length <= MAX_LENGTH_NUMBER - 1
-                && m_numbers_list[m_current_number_index] != "" && !m_equation.Contains('.'))
+                && m_numbers_list[m_current_number_index] != "" && !m_numbers_list[m_current_number_index].Contains('.') && !m_numbers_list[m_current_number_index].Contains('E'))
             {
                 m_numbers_list[m_current_number_index] += ",";
 

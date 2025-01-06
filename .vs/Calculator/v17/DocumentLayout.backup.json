@@ -42,8 +42,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 4,
@@ -54,8 +58,7 @@
               "RelativeToolTip": "Calculator\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-28T22:14:23.524Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-28T22:14:23.524Z"
             },
             {
               "$type": "Document",
@@ -76,9 +79,9 @@
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\prj\\\u0421#\\Calculator\\Calculator\\Form1.cs",
               "RelativeDocumentMoniker": "Calculator\\Form1.cs",
-              "ToolTip": "C:\\prj\\\u0421#\\Calculator\\Calculator\\Form1.cs",
-              "RelativeToolTip": "Calculator\\Form1.cs",
-              "ViewState": "AgIAAJEAAAAAAAAAAADwv5MAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\prj\\\u0421#\\Calculator\\Calculator\\Form1.cs*",
+              "RelativeToolTip": "Calculator\\Form1.cs*",
+              "ViewState": "AgIAAPEFAAAAAAAAAAAcwPsFAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-28T22:18:55.148Z",
               "EditorCaption": ""
@@ -97,17 +100,13 @@
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\prj\\\u0421#\\Calculator\\Calculator\\Form1.cs",
               "RelativeDocumentMoniker": "Calculator\\Form1.cs",
-              "ToolTip": "C:\\prj\\\u0421#\\Calculator\\Calculator\\Form1.cs [Design]",
-              "RelativeToolTip": "Calculator\\Form1.cs [Design]",
+              "ToolTip": "C:\\prj\\\u0421#\\Calculator\\Calculator\\Form1.cs [Design]*",
+              "RelativeToolTip": "Calculator\\Form1.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-04T16:17:20.925Z",
               "EditorCaption": " [Design]"
